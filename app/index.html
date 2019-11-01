@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="snnotebook">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,13 +11,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="app.css" />
   </head>
-  <body>
-    test {{ 1 + 2 }}
+  <body ng-controller="appCtrl">
+    <header></header>
+    <note-form></note-form>
+    <note-list></note-list>
     <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
-    <script src="app.js"></script>
+    <script src="app.module.js"></script>
+    <script src="note-form/note-form.module.js"></script>
+    <script src="note-form/note-form.component.js"></script>
+    <script src="header/header.module.js"></script>
+    <script src="header/header.component.js"></script>
+    <script src="note-list/note-list.module.js"></script>
+    <script src="note-list/note-list.component.js"></script>
   </body>
 </html>

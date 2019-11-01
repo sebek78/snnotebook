@@ -1,1 +1,14 @@
 /* app css stylesheet */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: #2e3436;
+  color: #d3d7cf;
+}
+
+.header-title {
+  text-align: center;
+}
