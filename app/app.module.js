@@ -25,6 +25,20 @@ angular
 
     $scope.notes = [];
     $scope.note = { edit: false, id: null, text: "" };
+    $scope.view = {
+      list: true,
+      form: false
+    };
+
+    $scope.setView = function setView(action) {
+      if (action === "showForm") {
+        this.view.list = false;
+        this.view.form = true;
+      } else if (action === "hideForm") {
+        this.view.list = true;
+        this.view.form = false;
+      }
+    };
 
     const newNotes = $scope.getDataFromLocalStorage();
     if (newNotes !== undefined) $scope.notes = [...newNotes];
@@ -35,15 +49,18 @@ angular
         this.notes[this.note.id] = newNote;
         this.note.edit = false;
         this.note.id = null;
+        this.note.text = "";
       } else {
         this.notes.push(newNote);
       }
       this.sendDataToLocalStorage(this.notes);
+      this.setView("hideForm");
     };
     $scope.editNote = function editNote(id) {
       this.note.text = this.notes[id].note;
       this.note.edit = true;
       this.note.id = id;
+      this.setView("showForm");
     };
     $scope.deleteNote = function deleteNote(id) {
       this.notes.splice(id, 1);

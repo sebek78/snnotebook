@@ -1,5 +1,10 @@
-<form class="note-form">
+<form
+  class="note-form"
+  ng-show="$ctrl.view"
+  ng-submit="$ctrl.addNote($ctrl.query)"
+>
   <label>Add</label>
   <input required ng-model="$ctrl.query" />
-  <button ng-click="$ctrl.addNote($ctrl.query)">Save</button>
+  <button type="submit">Save</button>
+  <button type="button" ng-click="$ctrl.backBtn()">Back</button>
 </form>
