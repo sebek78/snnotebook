@@ -8,5 +8,18 @@
 .note-list__list-item {
   outline: 1px dashed red;
   margin: 8px 0;
-  padding: 8px;
+  padding: 8px 30px 8px 8px;
+  position: relative;
+}
+
+.note-list__list-item .closeBtn {
+  color: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+  outline: 1px dashed green;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
 }

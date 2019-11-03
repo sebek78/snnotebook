@@ -2,8 +2,9 @@
   <li
     class="note-list__list-item"
     ng-repeat="note in $ctrl.notes"
-    ng-dblclick="$ctrl.edit($index)"
+    ng-dblclick="$ctrl.editNote($index)"
   >
     {{ note.note }}
+    <div class="closeBtn" ng-click="$ctrl.deleteNote($index)">x</div>
   </li>
 </ul>

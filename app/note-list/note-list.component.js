@@ -6,8 +6,11 @@ angular.module("noteList").component("noteList", {
       const self = this;
       self.notes = $scope.$parent.notes;
 
-      self.edit = function edit(id) {
+      self.editNote = function editNote(id) {
         $scope.$parent.editNote(id);
+      };
+      self.deleteNote = function deleteNote(id) {
+        $scope.$parent.deleteNote(id);
       };
     }
   ]

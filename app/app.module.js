@@ -45,4 +45,8 @@ angular
       this.note.edit = true;
       this.note.id = id;
     };
+    $scope.deleteNote = function deleteNote(id) {
+      this.notes.splice(id, 1);
+      this.sendDataToLocalStorage(this.notes);
+    };
   });
