@@ -1,8 +1,9 @@
-<div class="note-list">
-  <p>Notes: {{ $ctrl.notes.length }}</p>
-  <ul>
-    <li ng-repeat="note in $ctrl.notes">
-      {{ note.note }}
-    </li>
-  </ul>
-</div>
+<ul class="note-list">
+  <li
+    class="note-list__list-item"
+    ng-repeat="note in $ctrl.notes"
+    ng-dblclick="$ctrl.edit($index)"
+  >
+    {{ note.note }}
+  </li>
+</ul>

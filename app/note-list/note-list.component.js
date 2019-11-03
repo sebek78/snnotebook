@@ -3,8 +3,12 @@ angular.module("noteList").component("noteList", {
   controller: [
     "$scope",
     function noteListController($scope) {
-      var self = this;
+      const self = this;
       self.notes = $scope.$parent.notes;
+
+      self.edit = function edit(id) {
+        $scope.$parent.editNote(id);
+      };
     }
   ]
 });

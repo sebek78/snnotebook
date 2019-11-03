@@ -4,12 +4,23 @@ angular.module("noteForm").component("noteForm", {
     "$scope",
     function noteFormController($scope) {
       const self = this;
+      self.query = $scope.$parent.note.text;
+
+      $scope.$parent.$watch(
+        "note",
+        function(newValue) {
+          self.query = newValue.text;
+        },
+        true
+      );
+
       self.addNote = function addNote(text) {
         if (text !== undefined) {
           $scope.$parent.addNote(text);
-        } else {
-          console.log("The filed is empty.");
         }
+      };
+      self.setQuery = function setQuery(text) {
+        this.query = text;
       };
     }
   ]

@@ -13,13 +13,7 @@ angular
       }
     };
 
-    $scope.notes = [];
-    const newNotes = $scope.getDataFromLocalStorage();
-    if (newNotes !== undefined) $scope.notes = [...newNotes];
-
-    $scope.addNote = function addNote(text) {
-      let newNote = { note: text };
-      let notesCopy = [...this.notes, newNote];
+    $scope.sendDataToLocalStorage = function sendDataToLocalStorage(notesCopy) {
       let processedNotes = notesCopy
         .map(obj => {
           delete obj["$$hashKey"];
@@ -27,6 +21,28 @@ angular
         })
         .join(";");
       localStorage.setItem(STORAGE_KEY, processedNotes);
-      this.notes.push(newNote);
+    };
+
+    $scope.notes = [];
+    $scope.note = { edit: false, id: null, text: "" };
+
+    const newNotes = $scope.getDataFromLocalStorage();
+    if (newNotes !== undefined) $scope.notes = [...newNotes];
+
+    $scope.addNote = function addNote(text) {
+      let newNote = { note: text };
+      if (this.note.edit) {
+        this.notes[this.note.id] = newNote;
+        this.note.edit = false;
+        this.note.id = null;
+      } else {
+        this.notes.push(newNote);
+      }
+      this.sendDataToLocalStorage(this.notes);
+    };
+    $scope.editNote = function editNote(id) {
+      this.note.text = this.notes[id].note;
+      this.note.edit = true;
+      this.note.id = id;
     };
   });

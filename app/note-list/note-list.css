@@ -1,5 +1,12 @@
 .note-list {
-  padding: 16px;
+  padding: 8px 16px;
   display: block;
-  /* outline: 1px dashed blue; */
+  outline: 1px dashed blue;
+  list-style-type: none;
+  min-width: 600px;
+}
+.note-list__list-item {
+  outline: 1px dashed red;
+  margin: 8px 0;
+  padding: 8px;
 }
