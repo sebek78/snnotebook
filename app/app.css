@@ -8,15 +8,10 @@
   box-sizing: border-box;
 }
 html {
-  background-color: #2e3436;
-  color: #d3d7cf;
+  background-color: #d7cdff;
+  color: #000000;
+  font-family: "Lato", sans-serif;
 }
 
 .wrapper {
-  max-width: 850px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }

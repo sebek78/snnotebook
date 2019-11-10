@@ -3,8 +3,12 @@
   ng-show="$ctrl.view"
   ng-submit="$ctrl.addNote($ctrl.query)"
 >
-  <label>Add</label>
-  <input required ng-model="$ctrl.query" />
-  <button type="submit">Save</button>
-  <button type="button" ng-click="$ctrl.backBtn()">Back</button>
+  <button
+    class="note-form__backBtn"
+    type="button"
+    ng-click="$ctrl.backBtn()"
+  ></button>
+  <label class="note-form__label">Note</label>
+  <input class="note-form__input" required ng-model="$ctrl.query" />
+  <button class="note-form__saveBtn" type="submit">Save</button>
 </form>

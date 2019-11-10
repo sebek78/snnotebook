@@ -1,22 +1,39 @@
 .note-list {
-  padding: 8px 16px;
-  display: block;
-  border: 1px solid black;
   list-style-type: none;
-  min-width: 600px;
+  background-color: #d7cdff;
 }
 .note-list__list-item {
-  border: 1px solid black;
   margin: 8px 0;
-  padding: 8px 30px 8px 8px;
-  position: relative;
+  background-color: #ffffce;
+  padding: 8px;
+  font-size: 16px;
+  display: block;
+  min-height: 46px;
 }
 
-.list-item__closeBtn {
-  color: red;
-  position: absolute;
-  top: 0;
-  right: 0;
+.list-item__deleteBtn {
+  display: block;
+  float: right;
+  padding: 4px;
   width: 30px;
   height: 30px;
+  margin: 0 0 4px 4px;
+  cursor: pointer;
+  color: #736ebb;
+  font-weight: bold;
+  border: 0;
+  border-radius: 8px;
+  background-color: transparent;
+  font-size: 16px;
+}
+.list-item__deleteBtn:before {
+  content: "\2715";
+}
+
+.list-item__deleteBtn:hover {
+  background-color: #d7cdff;
+  color: black;
+}
+.list-item__deleteBtn:active {
+  transform: translateY(4px);
 }

@@ -4,9 +4,10 @@
     ng-repeat="note in $ctrl.notes"
     ng-dblclick="$ctrl.editNote($index)"
   >
+    <button
+      class="list-item__deleteBtn"
+      ng-click="$ctrl.deleteNote($index)"
+    ></button>
     {{ note.note }}
-    <button class="list-item__closeBtn" ng-click="$ctrl.deleteNote($index)">
-      x
-    </button>
   </li>
 </ul>
