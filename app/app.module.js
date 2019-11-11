@@ -64,6 +64,10 @@ angular
     };
     $scope.deleteNote = function deleteNote(id) {
       this.notes.splice(id, 1);
-      this.sendDataToLocalStorage(this.notes);
+      if (this.notes.length === 0) {
+        localStorage.clear();
+      } else {
+        this.sendDataToLocalStorage(this.notes);
+      }
     };
   });
