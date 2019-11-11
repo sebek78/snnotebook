@@ -6,23 +6,24 @@ This project is building by me to practice AngularJS (version 1.7.5 now).
 
 ## Live version
 
-[Test version 0.0.0](http://test.mybytes.pl)
+### Version 0.0.0
+
+[test.mybytes.pl](http://test.mybytes.pl)
 
 ## Features
 
-Version 0.0.0
+&check; Add notes&NewLine;
+&check; Delete notes&NewLine;
 
 ### Prerequisites
 
-&#2714; Add notes
-&#0264; Edit notes by double-clicking (add double-tap for mobile)
-&#2714; Delete notes
-&#2212; Check/uncheck notes
-&#215; Filters for complete/active notes
-&#2212; Filter notes by text
-&#2212; Add creation date to note and sort it by oldest and newest
-&#2212; Counts how many notes are left
-&#0264; Notes are saved to localStorage (move local storage functions to external service)
-&#2212; Add empty list template, about page and 404 page
-&#0264; Add stylesheet
-&#2212; Pagination list
+&Tilde; Edit notes by double-clicking (add double-tap for mobile)&NewLine;
+&minus; Add empty list template, about page and 404 page&NewLine;
+&Tilde; Add stylesheet&NewLine;
+&minus; Add creation date to note and sort it by oldest and newest&NewLine;
+&minus; Check/uncheck notes&NewLine;
+&times; Filters for complete/active notes&NewLine;
+&minus; Filter notes by text&NewLine;
+&minus; Counts how many notes are left&NewLine;
+&Tilde; Notes are saved to localStorage (move local storage functions to external service)&NewLine;
+&minus; Pagination list&NewLine;

@@ -2,7 +2,22 @@
 
 // Declare app level module which depends on views, and core components
 angular
-  .module("snnotebook", ["noteForm", "header", "noteList"])
+  .module("snnotebook", ["ngRoute", "noteForm", "header", "noteList"])
+  .config([
+    "$routeProvider",
+    function config($routeProvider) {
+      $routeProvider
+        .when("/", {
+          templateUrl: "app.template.html"
+        })
+        .when("/about", {
+          templateUrl: "aboutPage/aboutPage.template.html"
+        })
+        .otherwise({
+          templateUrl: "404.template.html"
+        });
+    }
+  ])
   .controller("appCtrl", function appCtrl($scope) {
     const STORAGE_KEY = "snn-notes";
 

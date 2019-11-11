@@ -5,9 +5,17 @@
   padding: 8px 0;
 }
 
+.header__link {
+  text-decoration: none;
+  color: black;
+}
+
 .header__menu {
   padding: 8px;
   background-color: #e6ee9c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .menu__button {
@@ -26,4 +34,8 @@
 }
 .menu__button:active {
   transform: translateY(4px);
+}
+
+.menu__link {
+  display: block;
 }
