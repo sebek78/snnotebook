@@ -1,5 +1,16 @@
 "use strict";
 
+import './app.css';
+import "./snn-icon.png";
+import angular from 'angular';
+import ngRoute from 'angular-route';
+import noteForm from './note-form/note-form.module';
+import header from "./header/header.module";
+import noteList from "./note-list/note-list.module";
+import appTemplate from "./app.template.html";
+import aboutPageTemplate from "./aboutPage/aboutPage.template.html";
+import page404Template from "./404.template.html";
+
 // Declare app level module which depends on views, and core components
 angular
   .module("snnotebook", ["ngRoute", "noteForm", "header", "noteList"])
@@ -8,13 +19,13 @@ angular
     function config($routeProvider) {
       $routeProvider
         .when("/", {
-          templateUrl: "app.template.html"
+          template: appTemplate, //"./app/app.template.html"
         })
         .when("/about", {
-          templateUrl: "aboutPage/aboutPage.template.html"
+          template: aboutPageTemplate, //"./app/aboutPage/aboutPage.template.html"
         })
         .otherwise({
-          templateUrl: "404.template.html"
+          template: page404Template, //"404.template.html"
         });
     }
   ])
