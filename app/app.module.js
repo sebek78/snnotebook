@@ -1,4 +1,5 @@
 "use strict";
+/*global localStorage: false, console: false */
 
 import './app.css';
 import "./snn-icon.png";
@@ -11,7 +12,6 @@ import appTemplate from "./app.template.html";
 import aboutPageTemplate from "./aboutPage/aboutPage.template.html";
 import page404Template from "./404.template.html";
 
-// Declare app level module which depends on views, and core components
 angular
   .module("snnotebook", ["ngRoute", "noteForm", "header", "noteList"])
   .config([
@@ -19,17 +19,21 @@ angular
     function config($routeProvider) {
       $routeProvider
         .when("/", {
-          template: appTemplate, //"./app/app.template.html"
+          template: appTemplate,
         })
         .when("/about", {
-          template: aboutPageTemplate, //"./app/aboutPage/aboutPage.template.html"
+          template: aboutPageTemplate,
+        })
+        .when("/note-form", {
+          template: '<note-form></note-form>'
+
         })
         .otherwise({
-          template: page404Template, //"404.template.html"
+          template: page404Template,
         });
     }
   ])
-  .controller("appCtrl", function appCtrl($scope) {
+  .controller("appCtrl", function appCtrl($scope,$window) {
     const STORAGE_KEY = "snn-notes";
 
     $scope.getDataFromLocalStorage = function getDataFromLocalStorage() {
@@ -42,7 +46,7 @@ angular
     $scope.sendDataToLocalStorage = function sendDataToLocalStorage(notesCopy) {
       let processedNotes = notesCopy
         .map(obj => {
-          delete obj["$$hashKey"];
+          delete obj.$$hashKey;
           return JSON.stringify(obj);
         })
         .join(";");
@@ -51,20 +55,6 @@ angular
 
     $scope.notes = [];
     $scope.note = { edit: false, id: null, text: "" };
-    $scope.view = {
-      list: true,
-      form: false
-    };
-
-    $scope.setView = function setView(action) {
-      if (action === "showForm") {
-        this.view.list = false;
-        this.view.form = true;
-      } else if (action === "hideForm") {
-        this.view.list = true;
-        this.view.form = false;
-      }
-    };
 
     const newNotes = $scope.getDataFromLocalStorage();
     if (newNotes !== undefined) $scope.notes = [...newNotes];
@@ -80,13 +70,12 @@ angular
         this.notes.push(newNote);
       }
       this.sendDataToLocalStorage(this.notes);
-      this.setView("hideForm");
     };
     $scope.editNote = function editNote(id) {
       this.note.text = this.notes[id].note;
       this.note.edit = true;
       this.note.id = id;
-      this.setView("showForm");
+      $window.location.href = "/#!note-form";
     };
     $scope.deleteNote = function deleteNote(id) {
       this.notes.splice(id, 1);

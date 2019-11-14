@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 import angular from 'angular';
 import headerTemplate from "./header.template.html";
@@ -8,13 +8,11 @@ export default angular.module("header", []).component("header", {
     template: headerTemplate,
     controller: [
         "$scope",
-        "$location",
-        function headerController($scope, $location) {
+        "$window",
+        function headerController($scope, $window) {
             const self = this;
-
             self.addNoteBtn = function addNoteBtn() {
-                $scope.$parent.setView("showForm");
-                $location.path("/");
+                $window.location.href = "/#!note-form";
             };
         }
     ]
