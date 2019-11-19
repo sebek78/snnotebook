@@ -16,11 +16,11 @@ Due to the job reasons I building this project to practice AngularJS (version 1.
 
 ### Done 
 
-&check; Add empty list message, about page and 404 page
+&check; Add empty list message, about page and 404 page\
+&check; Edit notes by double-clicking or touch 2 seconds on mobile
 
 ### Prerequisites
 
-&Tilde; Edit notes by double-clicking (add double-tap for mobile)\
 &Tilde; Add stylesheet\
 &minus; Add creation date to note and sort it by oldest and newest\
 &minus; Check/uncheck notes\

@@ -1,5 +1,5 @@
 "use strict";
-/*global localStorage: false, console: false */
+/*global localStorage: false, console: false, window: false */
 
 import './app.scss';
 import "./snn-icon.png";
@@ -11,6 +11,9 @@ import noteList from "./note-list/note-list.module";
 import appTemplate from "./app.template.html";
 import aboutPage from "./aboutPage/about-page.module";
 import page404Template from "./404.template.html";
+
+// disable the context menu on long press when using device mode in Chrome (for tests only)
+// window.oncontextmenu = function() { return false; };
 
 angular
   .module("snnotebook", ["ngRoute", "noteForm", "header", "noteList","aboutPage"])
@@ -85,4 +88,26 @@ angular
         this.sendDataToLocalStorage(this.notes);
       }
     };
-  });
+  })
+  .directive("customTouch", ['$interval', function($interval){
+    return {
+      link: function($scope,element){
+        let delay, time = 0;
+        element.on('touchstart', function(){
+          const id = $scope.$index;
+          const DELAY_IN_MS = 200;
+          delay = $interval(function(){
+            time += DELAY_IN_MS;
+            if(time>=2000) {
+              $interval.cancel(delay);
+              $scope.$parent.$ctrl.editNote(id);
+            }
+           },DELAY_IN_MS);
+        });
+        element.on('touchend', function(){
+          $interval.cancel(delay);
+        });
+      }
+    };
+
+}]);
