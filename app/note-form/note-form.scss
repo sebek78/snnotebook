@@ -1,5 +1,7 @@
+@import '../../scss/variables.scss';
+
 .note-form {
-  background-color: #ffffce;
+  background-color: $lime-light;
   display: block;
   padding: 24px 8px 8px 8px;
   margin: 8px 0;
@@ -7,24 +9,24 @@
 }
 
 .note-form__label {
-  color: black;
+  color: $font-color;
   display: inline;
   font-size: 14px;
 }
 
 .note-form__input {
-  background-color: #d7cdff;
+  background-color: $violet-light;
   border: 0;
-  border-bottom: 2px solid #a49cee;
+  border-bottom: 2px solid $violet-secondary;
   width: 100%;
   padding: 8px;
   margin: 4px 0 8px;
   box-sizing: border-box;
-  color: black;
+  color: $font-color;
 }
 
 .note-form__input:focus {
-  border-bottom: 2px solid #736ebb;
+  border-bottom: 2px solid $violet-dark;
 }
 
 .note-form__backBtn {
@@ -37,7 +39,7 @@
   height: 30px;
   margin: 0 0 4px 4px;
   cursor: pointer;
-  color: #736ebb;
+  color: $violet-dark;
   font-weight: bold;
   border: 0;
   border-radius: 8px;
@@ -49,18 +51,18 @@
 }
 
 .note-form__backBtn:hover {
-  background-color: #d7cdff;
-  color: black;
+  background-color: $violet-light;
+  color: $font-color;
 }
 .note-form__backBtn:active {
   transform: translateY(4px);
 }
 
 .note-form__saveBtn {
-  background-color: #a49cee;
+  background-color: $violet-secondary;
   border: none;
   border-radius: 8px;
-  color: #000;
+  color: $font-color;
   padding: 8px 16px;
   text-align: center;
   text-decoration: none;
@@ -70,7 +72,7 @@
   display: block;
 }
 .note-form__saveBtn:hover {
-  background-color: #736ebb;
+  background-color: $violet-dark;
 }
 .note-form__saveBtn:active {
   transform: translateY(4px);

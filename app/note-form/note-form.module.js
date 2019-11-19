@@ -2,7 +2,7 @@
 
 import angular from 'angular';
 import noteFormTemplate from "./note-form.template.html";
-import "./note-form.css";
+import "./note-form.scss";
 
 export default angular.module("noteForm", []).component("noteForm", {
     template: noteFormTemplate,

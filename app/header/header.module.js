@@ -2,7 +2,7 @@
 
 import angular from 'angular';
 import headerTemplate from "./header.template.html";
-import "./header.css";
+import "./_header.scss";
 
 export default angular.module("header", []).component("header", {
     template: headerTemplate,

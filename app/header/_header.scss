@@ -1,28 +1,30 @@
+@import '../../scss/variables.scss';
+
 .header__title {
   text-align: center;
-  background-color: #b3bc6d;
+  background-color: $lime-dark;
   font-size: 24px;
   padding: 8px 0;
 }
 
 .header__link {
   text-decoration: none;
-  color: black;
+  color: $font-color;
 }
 
 .header__menu {
   padding: 8px;
-  background-color: #e6ee9c;
+  background-color: $lime-primary;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .menu__button {
-  background-color: #a49cee;
+  background-color: $violet-secondary;
   border: none;
   border-radius: 8px;
-  color: #000;
+  color: $font-color;
   padding: 8px 16px;
   text-align: center;
   text-decoration: none;
@@ -30,7 +32,7 @@
   cursor: pointer;
 }
 .menu__button:hover {
-  background-color: #736ebb;
+  background-color: $violet-dark;
 }
 .menu__button:active {
   transform: translateY(4px);

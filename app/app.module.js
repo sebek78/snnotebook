@@ -1,7 +1,7 @@
 "use strict";
 /*global localStorage: false, console: false */
 
-import './app.css';
+import './app.scss';
 import "./snn-icon.png";
 import angular from 'angular';
 import ngRoute from 'angular-route';

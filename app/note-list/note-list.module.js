@@ -2,7 +2,7 @@
 
 import angular from 'angular';
 import noteListTemplate from "./note-list.template.html";
-import "./note-list.css";
+import "./note-list.scss";
 
 export default angular.module("noteList", []).component("noteList", {
     template: noteListTemplate,

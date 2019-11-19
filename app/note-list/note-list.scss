@@ -1,10 +1,12 @@
+@import '../../scss/variables.scss';
+
 .note-list {
   list-style-type: none;
-  background-color: #d7cdff;
+  background-color: $violet-light;
 }
 .note-list__list-item {
   margin: 8px 0;
-  background-color: #ffffce;
+  background-color: $lime-light;
   padding: 8px;
   font-size: 16px;
   line-height: 24px;
@@ -21,7 +23,7 @@
   height: 24px;
   margin: 0 0 4px 4px;
   cursor: pointer;
-  color: #736ebb;
+  color: $violet-dark;
   font-weight: bold;
   border: 0;
   border-radius: 8px;
@@ -33,8 +35,8 @@
 }
 
 .list-item__deleteBtn:hover {
-  background-color: #d7cdff;
-  color: black;
+  background-color: $violet-light;
+  color: $font-color;
 }
 .list-item__deleteBtn:active {
   transform: translateY(4px);
@@ -42,7 +44,7 @@
 
 .note-list__delete-warning {
   color: black;
-  background-color: rgba(245, 245, 245, 0.6);
+  background-color: rgba(245, 245, 245, 0.6); /* gray semi transparent*/
   position: absolute;
   top: 0;
   left: 0;
@@ -51,7 +53,7 @@
   z-index: 2;
 }
 .note-list__delete-box {
-  background-color: #e2e2e2;
+  background-color: $background-dark;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -75,25 +77,25 @@
 }
 
 .delete-warning__button {
-  background-color: #a49cee;
+  background-color: $violet-secondary;
   border: none;
   border-radius: 8px;
-  color: #000;
+  color: $font-color;
   padding: 8px 16px;
   text-align: center;
   font-size: 14px;
   cursor: pointer;
 }
 .delete-warning__button:hover {
-  background-color: #736ebb;
+  background-color: $violet-dark;
 }
 .delete-warning__button:active {
   transform: translateY(4px);
 }
 .delete-warning__button--cancel {
-  background-color: #e6ee9c;
+  background-color: $lime-primary;
   margin-left: 24px;
 }
 .delete-warning__button--cancel:hover {
-  background-color: #ffffce;
+  background-color: $lime-light;
 }

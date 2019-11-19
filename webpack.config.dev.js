@@ -14,6 +14,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
                 template: './app/index.html',
+                inject: true,
                 favicon: "./app/snn-icon.png"
                 }
             ),
@@ -26,10 +27,12 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: [/.css$|.scss$/],
                 use: [
                         MiniCssExtractPlugin.loader,
-                        'css-loader'
+                        'css-loader',
+                        'sass-loader',
+                        "postcss-loader"
                     ]
                 },
             {

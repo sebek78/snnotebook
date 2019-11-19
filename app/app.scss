@@ -1,10 +1,12 @@
+@import '../scss/variables.scss';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 html {
-  background-color: #e2e2e2;
-  color: #000000;
+  background-color: $background-dark;
+  color: $font-color;
   font-family: "Lato", sans-serif;
 }
