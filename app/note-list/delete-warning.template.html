@@ -1,0 +1,8 @@
+<div class="note-list__delete-warning" ng-click="$ctrl.deleteNote()"></div>
+<div class="note-list__delete-box" ng-show="$ctrl.showDeleteWarning">
+    <p class="delete-warning__message">Delete this note?</p>
+    <div class="delete-warning__buttons">
+        <button class="delete-warning__button" ng-click="$ctrl.deleteNote($ctrl.deleteID)">Delete</button>
+        <button class="delete-warning__button delete-warning__button--cancel" ng-click="$ctrl.deleteNote()">Cancel</button>
+    </div>
+</div>

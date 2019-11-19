@@ -99,3 +99,13 @@
 .delete-warning__button--cancel:hover {
   background-color: $lime-light;
 }
+
+.note-list__message {
+  margin: 50px auto;
+  width: 240px;
+  font-size: 20px;
+  text-align: center;
+  padding: 16px;
+  line-height: 30px;
+  background-color: $violet-light;
+}

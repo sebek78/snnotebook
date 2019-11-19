@@ -1,4 +1,4 @@
-<ul class="note-list" >
+<ul class="note-list" ng-show="$ctrl.notes.length">
   <li
     class="note-list__list-item"
     ng-repeat="note in $ctrl.notes"
@@ -11,25 +11,5 @@
     {{ note.note }}
   </li>
 </ul>
-<div
-  class="note-list__delete-warning"
-  ng-show="$ctrl.showDeleteWarning"
-  ng-click="$ctrl.deleteNote()"
-></div>
-<div class="note-list__delete-box" ng-show="$ctrl.showDeleteWarning">
-  <p class="delete-warning__message">Delete this note?</p>
-  <div class="delete-warning__buttons">
-    <button
-      class="delete-warning__button"
-      ng-click="$ctrl.deleteNote($ctrl.deleteID)"
-    >
-      Delete
-    </button>
-    <button
-      class="delete-warning__button delete-warning__button--cancel"
-      ng-click="$ctrl.deleteNote()"
-    >
-      Cancel
-    </button>
-  </div>
-</div>
+<ng-include ng-show="$ctrl.showDeleteWarning" src="'app/note-list/delete-warning.template.html'"></ng-include>
+<ng-include ng-hide="$ctrl.notes.length" src="'app/note-list/message.template.html'"></ng-include>
