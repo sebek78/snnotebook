@@ -9,11 +9,11 @@ import noteForm from './note-form/note-form.module';
 import header from "./header/header.module";
 import noteList from "./note-list/note-list.module";
 import appTemplate from "./app.template.html";
-import aboutPageTemplate from "./aboutPage/aboutPage.template.html";
+import aboutPage from "./aboutPage/about-page.module";
 import page404Template from "./404.template.html";
 
 angular
-  .module("snnotebook", ["ngRoute", "noteForm", "header", "noteList"])
+  .module("snnotebook", ["ngRoute", "noteForm", "header", "noteList","aboutPage"])
   .config([
     "$routeProvider",
     function config($routeProvider) {
@@ -22,7 +22,7 @@ angular
           template: appTemplate,
         })
         .when("/about", {
-          template: aboutPageTemplate,
+          template: '<about-page></about-page>'
         })
         .when("/note-form", {
           template: '<note-form></note-form>'

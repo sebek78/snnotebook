@@ -1,0 +1,11 @@
+@import "variables.scss";
+
+.link {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: $font-color;
+}
+.link:hover {
+  color: $violet-dark;
+}
