@@ -2,7 +2,7 @@
 
 This is a to-do-list type app that manages a bunch of short notes.
 
-Due to the job reasons I building this project to practice AngularJS (version 1.7.5 now).
+Due to the job reasons I building this project to practice AngularJS (version 1.7.9 now).
 
 ## Live version
 
@@ -13,11 +13,11 @@ Due to the job reasons I building this project to practice AngularJS (version 1.
 ## Features
 
 &check; Add notes and delete notes
+&check; Edit notes by double-clicking or touch 2 seconds on mobile
 
 ### Done 
 
 &check; Add empty list message, about page and 404 page\
-&check; Edit notes by double-clicking or touch 2 seconds on mobile
 
 ### Prerequisites
 
