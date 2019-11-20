@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "description": "This is a to-do-list type app that manages a bunch of short notes.",
   "dependencies": {
-    "angular": "^1.7.8",
+    "angular": "^1.7.9",
     "angular-loader": "^1.7.5",
     "angular-route": "^1.7.8"
   },
