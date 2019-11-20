@@ -1,5 +1,10 @@
-<form>
-  <label>Add</label>
-  <input ng-model="$ctrl.query" />
-  <button ng-click="$ctrl.addNote($ctrl.query)">Save</button>
+<form class="note-form" ng-submit="$ctrl.addNote($ctrl.query)">
+  <button
+    class="note-form__backBtn"
+    type="button"
+    ng-click="$ctrl.backBtn()"
+  ></button>
+  <label class="note-form__label" for="note">Note</label>
+  <input class="note-form__input" id="note"  required autofocus ng-model="$ctrl.query" />
+  <button class="note-form__saveBtn" type="submit">Save</button>
 </form>

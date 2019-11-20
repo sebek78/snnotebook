@@ -1,0 +1,13 @@
+@import '../scss/variables.scss';
+@import '../scss/common.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: $background-dark;
+  color: $font-color;
+  font-family: "Lato", sans-serif;
+}

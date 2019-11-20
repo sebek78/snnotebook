@@ -1,6 +1,16 @@
-<p>Notes: {{ $ctrl.notes.length }}</p>
-<ul>
-  <li ng-repeat="note in $ctrl.notes">
+<ul class="note-list" ng-show="$ctrl.notes.length">
+  <li
+    class="note-list__list-item"
+    ng-repeat="note in $ctrl.notes"
+    ng-dblclick="$ctrl.editNote($index)"
+    custom-touch
+  >
+    <button
+      class="list-item__deleteBtn"
+      ng-click="$ctrl.clickDeleteBtn($index)"
+    ></button>
     {{ note.note }}
   </li>
 </ul>
+<ng-include ng-show="$ctrl.showDeleteWarning" src="'app/note-list/delete-warning.template.html'"></ng-include>
+<ng-include ng-hide="$ctrl.notes.length" src="'app/note-list/message.template.html'"></ng-include>
