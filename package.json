@@ -35,6 +35,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js --port 3000",
     "build": "webpack --config webpack.config.dev.js",
+    "serve" : "http-server -a localhost -p 8000 -c-1 ./dist",
     "test": "karma start karma.conf.js",
     "test-single-run": "npm test -- --single-run",
     "preupdate-webdriver": "npm install",

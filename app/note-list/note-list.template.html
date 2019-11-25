@@ -12,5 +12,5 @@
     {{ note.note }}
   </li>
 </ul>
-<ng-include ng-show="$ctrl.showDeleteWarning" src="'app/note-list/delete-warning.template.html'"></ng-include>
-<ng-include ng-hide="$ctrl.notes.length" src="'app/note-list/message.template.html'"></ng-include>
+<delete-warning ng-show="$ctrl.showDeleteWarning"></delete-warning>
+<empty-list-message ng-hide="$ctrl.notes.length"></empty-list-message>
