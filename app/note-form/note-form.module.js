@@ -24,6 +24,7 @@ export default angular.module("noteForm", []).component("noteForm", {
                 this.query = text;
             };
             self.backBtn = function backBtn() {
+                $scope.$parent.note.text = '';
                 $window.location.href = "#!/";
             };
         }
