@@ -3,8 +3,10 @@
 import angular from 'angular';
 import noteListTemplate from "./note-list.template.html";
 import "./note-list.scss";
+import deleteWarning from "./delete-warning.module.js";
+import emptyListMessage from "./message.module";
 
-export default angular.module("noteList", []).component("noteList", {
+export default angular.module("noteList", ["deleteWarning", "emptyListMessage"]).component("noteList", {
     template: noteListTemplate,
     controller: [
         "$scope",
