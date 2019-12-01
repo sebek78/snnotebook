@@ -6,7 +6,8 @@
   "dependencies": {
     "angular": "^1.7.9",
     "angular-loader": "^1.7.9",
-    "angular-route": "^1.7.9"
+    "angular-route": "^1.7.9",
+    "rimraf": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -14,7 +15,9 @@
     "angular-mocks": "^1.7.9",
     "autoprefixer": "^9.7.2",
     "babel-loader": "^8.0.6",
+    "babel-plugin-angularjs-annotate": "^0.10.0",
     "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
     "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
@@ -25,17 +28,21 @@
     "karma-jasmine": "^1.1.2",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5",
     "postcss-loader": "^3.0.0",
     "protractor": "^5.4.2",
     "sass-loader": "^8.0.0",
     "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js --port 3000",
-    "build": "webpack --config webpack.config.dev.js",
-    "serve" : "http-server -a localhost -p 8000 -c-1 ./dist",
+    "clean:build": "rimraf ./dist && mkdir dist",
+    "prebuild": "run-p clean:build",
+    "build": "webpack --config webpack.config.prod.js",
+    "serve": "http-server -a localhost -p 8000 -c-1 ./dist",
     "test": "karma start karma.conf.js",
     "test-single-run": "npm test -- --single-run",
     "preupdate-webdriver": "npm install",
@@ -44,5 +51,15 @@
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js",
     "update-index-async": "node --eval \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/lib/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=lib/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebek78/snnotebook.git"
+  },
+  "author": "Sebastian Sporek (hhtp://mybytes.pl/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebek78/snnotebook/issues"
+  },
+  "homepage": "http://test.mybytes.pl/"
 }

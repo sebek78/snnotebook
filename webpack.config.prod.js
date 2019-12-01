@@ -3,6 +3,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpackBundleAnalyzer = require("webpack-bundle-analyzer");
+const webpack = require("webpack");
+
+process.env.NODE_ENV = "production";
 
 module.exports = {
     entry: './app/app.module.js',
@@ -11,25 +15,36 @@ module.exports = {
         publicPath: '/',
         filename: 'app.bundle.js'
     },
-    mode: 'development',
+    mode: 'production',
     target: 'web',
-    devtool: 'cheap-module-source-map',
-    devServer: {
-        stats: "minimal",
-        overlay: true,
-        historyApiFallback: true,
-        disableHostCheck: true,
-        headers: { "Access-Control-Allow-Origin": "*" },
-        https: false
-    },
+    devtool: 'source-map',
     plugins: [
+        new webpackBundleAnalyzer.BundleAnalyzerPlugin({
+            analyzerMode: "static"
+        }),
+        new webpack.DefinePlugin({
+            "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
+        }),
         new HtmlWebpackPlugin({
                 template: './app/index.html',
-                favicon: "./app/snn-icon.png"
+                favicon: "./app/snn-icon.png",
+                minify: {
+                    // see https://github.com/kangax/html-minifier#options-quick-reference
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    removeRedundantAttributes: true,
+                    useShortDoctype: true,
+                    removeEmptyAttributes: true,
+                    removeStyleLinkTypeAttributes: true,
+                    keepClosingSlash: true,
+                    minifyJS: true,
+                    minifyCSS: true,
+                    minifyURLs: true
                 }
-            ),
+            }
+        ),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '[name].[contenthash].css',
             chunkFilename: '[id].css',
             ignoreOrder: false
         })
@@ -40,9 +55,21 @@ module.exports = {
                 test: [/.css$|.scss$/],
                 use: [
                         MiniCssExtractPlugin.loader,
-                        'css-loader',
+                        {
+                        loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
                         'sass-loader',
-                        "postcss-loader"
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            plugins: () => [require("cssnano")],
+                            sourceMap: true
+                        }
+                    }
+
                     ]
                 },
             {
@@ -53,6 +80,7 @@ module.exports = {
                     options: {
                         presets: ['@babel/preset-env'],
                         plugins: ["angularjs-annotate"]
+
                     }
                 }
             },

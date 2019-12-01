@@ -12,12 +12,12 @@ Due to the job reasons I building this project to practice AngularJS (version 1.
 
 ## Features
 
-&check; Add notes and delete notes
+&check; Add notes and delete notes<br />
 &check; Edit notes by double-clicking or touch 2 seconds on mobile
 
 ### Done 
 
-&check; Add empty list message, about page and 404 page\
+&check; Add empty list message, about page and 404 page
 
 ### Prerequisites
 
