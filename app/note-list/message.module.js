@@ -1,7 +1,5 @@
-'use strict';
-import angular from 'angular';
-import emptyListMessage from './message.template.html';
+"use strict";
 
-export default angular.module("emptyListMessage", []).component("emptyListMessage", {
-    template: emptyListMessage
+angular.module("emptyListMessage", []).component("emptyListMessage", {
+  templateUrl: "massage.template.html"
 });

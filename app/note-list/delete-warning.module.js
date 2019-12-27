@@ -1,18 +1,17 @@
-'use strict';
-import angular from 'angular';
-import deleteWarningTemplate from './delete-warning.template.html';
+"use strict";
 
-export default angular.module("deleteWarning", []).component("deleteWarning", {
-    template: deleteWarningTemplate,
-controller: [
+angular.module("deleteWarning", []).component("deleteWarning", {
+  templateUrl: "delete-warning.template.html",
+  controller: [
     "$scope",
     function deleteWarningController($scope) {
-        const self = this;
-        self.cancelBtn = function cancelBtn() {
-            $scope.$parent.$ctrl.deleteNote();
-        };
-        self.deleteBtn = function deleteBtn() {
-            $scope.$parent.$ctrl.deleteNote($scope.$parent.$ctrl.deleteID);
-        };
+      const self = this;
+      self.cancelBtn = function cancelBtn() {
+        $scope.$parent.$ctrl.deleteNote();
+      };
+      self.deleteBtn = function deleteBtn() {
+        $scope.$parent.$ctrl.deleteNote($scope.$parent.$ctrl.deleteID);
+      };
     }
-]});
+  ]
+});
