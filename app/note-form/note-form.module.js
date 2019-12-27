@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("noteForm", []).component("noteForm", {
-  templateUrl: "note-form.template.html",
+  templateUrl: "note-form/note-form.template.html",
   controller: [
     "$scope",
     "$window",

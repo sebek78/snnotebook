@@ -3,7 +3,7 @@
 angular
   .module("noteList", ["deleteWarning", "emptyListMessage"])
   .component("noteList", {
-    templateUrl: "note-list.template.html",
+    templateUrl: "note-list/note-list.template.html",
     controller: [
       "$scope",
       function noteListController($scope) {

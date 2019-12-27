@@ -1,5 +1,5 @@
 "use strict";
 
 angular.module("emptyListMessage", []).component("emptyListMessage", {
-  templateUrl: "massage.template.html"
+  templateUrl: "note-list/message.template.html"
 });

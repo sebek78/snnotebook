@@ -14,7 +14,7 @@ angular
     function config($routeProvider) {
       $routeProvider
         .when("/", {
-          templateurl: "app.template.html"
+          templateUrl: "app.template.html"
         })
         .when("/about", {
           template: "<about-page></about-page>"
@@ -55,13 +55,22 @@ angular
 
     $scope.addNote = function addNote(text) {
       //const newState = manageNote.addNote(text, $scope);
-      manageNote.addNote(text, $scope);
+      //manageNote.addNote(text, $scope);
       //$scope.notes = newState.updatedNotes;
       //if (newState.updatedNote !== null) $scope.note = newState.updatedNote;
+      let newNote = { note: text };
+      if (this.note.edit) {
+        this.notes[this.note.id] = newNote;
+        this.note.edit = false;
+        this.note.id = null;
+        this.note.text = "";
+      } else {
+        this.notes.push(newNote);
+      }
       this.sendDataToLocalStorage($scope.notes);
     };
     $scope.editNote = function editNote(id) {
-      const newState = manageNote(id, this.note.text, true);
+      //const newState = manageNote(id, this.note.text, true);
       this.note.text = this.notes[id].note;
       this.note.edit = true;
       this.note.id = id;

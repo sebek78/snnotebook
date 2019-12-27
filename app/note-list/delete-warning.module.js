@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("deleteWarning", []).component("deleteWarning", {
-  templateUrl: "delete-warning.template.html",
+  templateUrl: "note-list/delete-warning.template.html",
   controller: [
     "$scope",
     function deleteWarningController($scope) {
