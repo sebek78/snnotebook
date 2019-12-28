@@ -1,0 +1,21 @@
+<ul ng-show="notes.length">
+  <li ng-repeat="note in notes" ng-dblclick="editNote($index)" custom-touch>
+    <button ng-click="clickDeleteBtn($index)">Delete</button>
+    {{ note.note }}
+  </li>
+</ul>
+
+<p ng-hide="notes.length">
+  Your note list is empty.<br />
+  Add some notes.
+</p>
+
+<div ng-show="showDeleteWarning">
+  <div>
+    <p>Delete this note?</p>
+    <div>
+      <button ng-click="deleteNote()">Delete</button>
+      <button ng-click="cancelBtn()">Cancel</button>
+    </div>
+  </div>
+</div>

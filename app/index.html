@@ -36,8 +36,7 @@
         your experience.
       </p>
     <![endif]-->
-
-    <header></header>
+    <ng-include src=" 'templates/header.template.html' "></ng-include>
     <div ng-view></div>
     <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -45,12 +44,7 @@
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
     <script src="app.js"></script>
-    <script src="note-form/note-form.module.js"></script>
-    <script src="header/header.module.js"></script>
-    <script src="note-list/note-list.module.js"></script>
-    <script src="note-list/delete-warning.module.js"></script>
-    <script src="note-list/message.module.js"></script>
-    <script src="aboutPage/about-page.module.js"></script>
+    <script src="controllers/note-form.controller.js"></script>
     <script src="services/manage-note.service.js"></script>
     <script src="services/local-storage.service.js"></script>
   </body>
