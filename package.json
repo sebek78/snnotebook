@@ -3,20 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "description": "This is a to-do-list type app that manages a bunch of short notes.",
-  "dependencies": {
-    "angular": "^1.7.9",
-    "angular-animate": "^1.7.9",
-    "angular-aria": "^1.7.9",
-    "angular-loader": "^1.7.9",
-    "angular-material": "^1.1.20",
-    "angular-messages": "^1.7.9",
-    "angular-route": "^1.7.9",
-    "angular-sanitize": "^1.7.9",
-    "html5-boilerplate": "^7.3.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "angular-mocks": "^1.7.9",
-    "cpx": "^1.5.0",
     "http-server": "^0.12.0",
     "jasmine-core": "^3.5.0",
     "karma": "^4.4.1",
@@ -26,11 +14,7 @@
     "protractor": "^5.4.2"
   },
   "scripts": {
-    "postinstall": "npm run copy-libs",
     "update-deps": "npm update",
-    "postupdate-deps": "npm run copy-libs",
-    "copy-libs": "cpx \"node_modules/{angular,angular-*,html5-boilerplate/dist}/**/*\" app/lib -C",
-    "prestart": "npm install",
     "start": "http-server -a localhost -p 3000 -c-1 ./app",
     "test": "karma start karma.conf.js",
     "test-single-run": "npm test -- --single-run",
