@@ -1,0 +1,18 @@
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+.note-form,
+.list,
+.aboutPage {
+  margin-top: 20px;
+  width: 100vw;
+}
+
+@media (min-width: 768px) {
+  .note-form,
+  .list,
+  .aboutPage {
+    max-width: 768px;
+  }
+}
