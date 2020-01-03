@@ -10,12 +10,12 @@ angular.module("snnotebook").controller("noteFormController", [
       if (text !== undefined) {
         $scope.$parent.addNote(text);
         $scope.query = "";
-        $window.location.href = "#!/";
+        $window.location.href = "/#!/";
       }
     };
     $scope.backBtn = function backBtn() {
       $scope.$parent.note.text = "";
-      $window.location.href = "#!/";
+      $window.location.href = "/#!/";
     };
   }
 ]);

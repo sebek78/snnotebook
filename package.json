@@ -5,8 +5,13 @@
   "description": "This is a to-do-list type app that manages a bunch of short notes.",
   "dependencies": {
     "angular": "^1.7.9",
+    "angular-animate": "^1.7.9",
+    "angular-aria": "^1.7.9",
     "angular-loader": "^1.7.9",
+    "angular-material": "^1.1.20",
+    "angular-messages": "^1.7.9",
     "angular-route": "^1.7.9",
+    "angular-sanitize": "^1.7.9",
     "html5-boilerplate": "^7.3.0"
   },
   "devDependencies": {

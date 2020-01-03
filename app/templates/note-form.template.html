@@ -1,8 +1,24 @@
-<form ng-submit="addNote(query)">
-  <button type="button" ng-click="backBtn()">
-    Back
-  </button>
-  <label for="note">Note</label>
-  <input id="note" required ng-model="query" />
-  <button type="submit">Save</button>
+<form
+  class="note-form md-whiteframe-6dp"
+  layout="column"
+  layout-align="center stretch"
+  layout-padding=""
+  ng-submit="addNote(query)"
+>
+  <div layout="row" layout-align="end center">
+    <md-button 
+      class="md-fab md-mini md-accent"
+      aria-label="Close form"
+      ng-click="backBtn()"
+    >
+      <md-icon md-svg-icon="img/close-24px.svg"></md-icon>
+    </md-button>
+  </div>
+  <md-input-container class="md-block md-icon-float">
+    <label>Note</label>
+    <textarea rows="1" ng-model="query" required aria-label="Note"></textarea>
+  </input-container>
+  <div layout="row" layout-align="center center" layout-margin="">
+  <md-button type="submit" class="md-raised md-primary" aria-label="Save button">Save</md-button>
+</div>
 </form>

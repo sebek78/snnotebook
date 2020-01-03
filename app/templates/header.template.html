@@ -1,7 +1,12 @@
-<h1>
-  <a ng-href="#/!">The Short Notes Notebook</a>
-</h1>
-<nav>
-  <a ng-href="#!note-form"><button>Add Note</button></a>
-  <a ng-href="#!about">About</a>
-</nav>
+<div class="header">
+  <h1 class="md-headline">The Short Notes Notebook</h1>
+  <md-nav-bar
+    md-no-ink-bar="disableInkBar"
+    md-selected-nav-item="currentNavItem"
+    nav-bar-aria-label="navigation links"
+  >
+    <md-nav-item md-nav-href="/#!/">List</md-nav-item>
+    <md-nav-item md-nav-href="/#!/note-form">Add Note</md-nav-item>
+    <md-nav-item md-nav-href="/#!/about">About</md-nav-item>
+  </md-nav-bar>
+</div>

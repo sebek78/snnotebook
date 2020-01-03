@@ -1,9 +1,12 @@
 "use strict";
 /*global localStorage: false, console: false, window: false */
 
-angular.module("snnotebook", ["ngRoute"]).config([
+angular.module("snnotebook", ["ngRoute", "ngMaterial", "ngMessages"]).config([
   "$routeProvider",
-  function config($routeProvider) {
+  "$mdThemingProvider",
+  function config($routeProvider, $mdThemingProvider) {
+    $mdThemingProvider.theme("default").dark();
+
     $routeProvider
       .when("/", {
         templateUrl: "templates/app.template.html"
@@ -20,29 +23,3 @@ angular.module("snnotebook", ["ngRoute"]).config([
       });
   }
 ]);
-/*
-  .directive("customTouch", [
-    "$interval",
-    function($interval) {
-      return {
-        link: function($scope, element) {
-          let delay,
-            time = 0;
-          element.on("touchstart", function() {
-            const id = $scope.$index;
-            const DELAY_IN_MS = 200;
-            delay = $interval(function() {
-              time += DELAY_IN_MS;
-              if (time >= 2000) {
-                $interval.cancel(delay);
-                $scope.$parent.$ctrl.editNote(id);
-              }
-            }, DELAY_IN_MS);
-          });
-          element.on("touchend", function() {
-            $interval.cancel(delay);
-          });
-        }
-      };
-    }
-  ]);*/

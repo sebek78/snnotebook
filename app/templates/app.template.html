@@ -1,21 +1,30 @@
-<ul ng-show="notes.length">
-  <li ng-repeat="note in notes" ng-dblclick="editNote($index)" custom-touch>
-    <button ng-click="clickDeleteBtn($index)">Delete</button>
-    {{ note.note }}
-  </li>
-</ul>
+<md-content class="list">
+  <md-list flex ng-show="notes.length">
+    <md-list-item
+      class="md-3-line md-long-text md-whiteframe-4dp"
+      ng-repeat="note in notes"
+      ng-dblclick="editNote($index)"
+    >
+      <md-icon md-svg-icon="img/notes-24px.svg"></md-icon>
+      <div class="md-list-item-text md-body-1">
+        <p>
+          {{ note.text }}
+        </p>
+      </div>
+      <div flex="none">
+        <md-button
+          class="md-fab md-mini md-warn"
+          aria-label="Close form"
+          ng-click="showConfirm($event,$index)"
+        >
+          <md-icon md-svg-icon="img/close-24px.svg"></md-icon>
+        </md-button>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>
 
-<p ng-hide="notes.length">
+<p ng-hide="notes.length" style="text-align: center;">
   Your note list is empty.<br />
   Add some notes.
 </p>
-
-<div ng-show="showDeleteWarning">
-  <div>
-    <p>Delete this note?</p>
-    <div>
-      <button ng-click="deleteNote()">Delete</button>
-      <button ng-click="cancelBtn()">Cancel</button>
-    </div>
-  </div>
-</div>
