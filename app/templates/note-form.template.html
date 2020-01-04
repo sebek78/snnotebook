@@ -3,9 +3,10 @@
   layout="column"
   layout-align="space-around stretch"
   layout-padding=""
-  ng-submit="addNote(query)"
+  ng-submit="addNote(query,date)"
 >
-  <div layout="row" layout-align="end center">
+  <div layout="row" layout-align="space-between center">
+    <md-datepicker ng-model="date" md-placeholder="Enter date"></md-datepicker>
     <md-button 
       class="md-fab md-mini md-accent"
       aria-label="Close form"

@@ -12,8 +12,8 @@ angular
     $scope.notes = localStore.getAllNotes() || [];
     $scope.note = { id: null, text: "" };
 
-    $scope.addNote = function addNote(text) {
-      manageNote.addNote(text, $scope);
+    $scope.addNote = function addNote(text, date) {
+      manageNote.addNote(text, date, $scope);
       localStore.save($scope.notes);
     };
     $scope.editNote = function editNote(id) {

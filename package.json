@@ -29,10 +29,9 @@
     "type": "git",
     "url": "git+https://github.com/sebek78/snnotebook.git"
   },
-  "author": "Sebastian Sporek (hhtp://mybytes.pl/)",
+  "author": "Sebastian Sporek (http://mybytes.pl/)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sebek78/snnotebook/issues"
-  },
-  "homepage": "http://test.mybytes.pl/"
+  }
 }

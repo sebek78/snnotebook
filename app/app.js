@@ -4,8 +4,16 @@
 angular.module("snnotebook", ["ngRoute", "ngMaterial", "ngMessages"]).config([
   "$routeProvider",
   "$mdThemingProvider",
-  function config($routeProvider, $mdThemingProvider) {
+  "$mdDateLocaleProvider",
+  function config($routeProvider, $mdThemingProvider, $mdDateLocaleProvider) {
     $mdThemingProvider.theme("default").dark();
+
+    $mdDateLocaleProvider.formatDate = function(date) {
+      const day = date.getDate();
+      const monthIndex = date.getMonth();
+      const year = date.getFullYear();
+      return day + "/" + (monthIndex + 1) + "/" + year;
+    };
 
     $routeProvider
       .when("/", {
