@@ -11,10 +11,9 @@ angular
   ) {
     $scope.notes = localStore.getAllNotes() || [];
     $scope.note = { id: null, text: "" };
-    $scope.deleteID = null;
 
-    $scope.addNote = function addNote(text) {
-      manageNote.addNote(text, $scope);
+    $scope.addNote = function addNote(text, date) {
+      manageNote.addNote(text, date, $scope);
       localStore.save($scope.notes);
     };
     $scope.editNote = function editNote(id) {
@@ -22,17 +21,14 @@ angular
       $scope.note.id = id;
       $window.location.href = "/#!note-form";
     };
-    $scope.deleteNote = function deleteNote() {
-      manageNote.deleteNote($scope.deleteID, $scope);
-      $scope.showDeleteWarning = false;
-      $scope.deleteID = null;
+    $scope.deleteNote = function deleteNote(id) {
+      manageNote.deleteNote(id, $scope);
       localStore.save(this.notes);
     };
 
     $scope.showConfirm = function(ev, id) {
       // Appending dialog to document.body to cover sidenav in docs app
-      $scope.deleteID = id;
-      var confirm = $mdDialog
+      const confirm = $mdDialog
         .confirm({
           onComplete: function() {
             angular
@@ -56,10 +52,11 @@ angular
 
       $mdDialog.show(confirm).then(
         function() {
-          $scope.deleteNote();
+          $scope.deleteNote(id);
+          $window.location.href = "/#!/";
         },
         function() {
-          $scope.deleteID = null;
+          // The cancel button was clicked.
         }
       );
     };

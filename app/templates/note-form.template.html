@@ -1,11 +1,12 @@
 <form
   class="note-form md-whiteframe-6dp"
   layout="column"
-  layout-align="center stretch"
+  layout-align="space-around stretch"
   layout-padding=""
-  ng-submit="addNote(query)"
+  ng-submit="addNote(query,date)"
 >
-  <div layout="row" layout-align="end center">
+  <div layout="row" layout-align="space-between center">
+    <md-datepicker ng-model="date" md-placeholder="Enter date"></md-datepicker>
     <md-button 
       class="md-fab md-mini md-accent"
       aria-label="Close form"
@@ -18,7 +19,9 @@
     <label>Note</label>
     <textarea rows="1" ng-model="query" required aria-label="Note"></textarea>
   </input-container>
-  <div layout="row" layout-align="center center" layout-margin="">
-  <md-button type="submit" class="md-raised md-primary" aria-label="Save button">Save</md-button>
-</div>
+    <div class="note-form__buttons" layout="row" layout-align="space-around center" >
+      <md-button class="md-raised md-warn" aria-label="Delete note button" ng-hide="hideDeleteBtn" 
+      ng-click="deleteBtn($event)">Delete</md-button>
+      <md-button type="submit" class="md-raised md-primary" aria-label="Save button">Save</md-button>
+  </div>
 </form>

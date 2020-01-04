@@ -1,24 +1,14 @@
 <md-content class="list">
   <md-list flex ng-show="notes.length">
     <md-list-item
-      class="md-3-line md-long-text md-whiteframe-4dp"
+      class="md-2-line md-long-text md-whiteframe-4dp"
       ng-repeat="note in notes"
       ng-dblclick="editNote($index)"
     >
       <md-icon md-svg-icon="img/notes-24px.svg"></md-icon>
-      <div class="md-list-item-text md-body-1">
-        <p>
-          {{ note.text }}
-        </p>
-      </div>
-      <div flex="none">
-        <md-button
-          class="md-fab md-mini md-warn"
-          aria-label="Close form"
-          ng-click="showConfirm($event,$index)"
-        >
-          <md-icon md-svg-icon="img/close-24px.svg"></md-icon>
-        </md-button>
+      <div class="md-list-item-text" layout="column">
+        <span class="md-caption">{{ note.date | date : 'd MMMM y'}}</span>
+        <span class="md-body-2">{{ note.text }}</span>
       </div>
     </md-list-item>
   </md-list>
