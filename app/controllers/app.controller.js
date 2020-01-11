@@ -10,15 +10,16 @@ angular
     $mdDialog
   ) {
     $scope.notes = localStore.getAllNotes() || [];
-    $scope.note = { id: null, text: "" };
+    $scope.note = { id: null, text: "", blueIcon: false };
 
-    $scope.addNote = function addNote(text, date) {
-      manageNote.addNote(text, date, $scope);
+    $scope.addNote = function addNote(text, date, blueIcon) {
+      manageNote.addNote(text, date, blueIcon, $scope);
       localStore.save($scope.notes);
     };
     $scope.editNote = function editNote(id) {
       $scope.note.text = this.notes[id].text;
       $scope.note.id = id;
+      $scope.note.blueIcon = this.notes[id].blueIcon;
       $window.location.href = "/#!note-form";
     };
     $scope.deleteNote = function deleteNote(id) {

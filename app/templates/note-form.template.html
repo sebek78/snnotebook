@@ -3,7 +3,7 @@
   layout="column"
   layout-align="space-around stretch"
   layout-padding=""
-  ng-submit="addNote(query,date)"
+  ng-submit="addNote(query,date,blueIcon)"
 >
   <div layout="row" layout-align="space-between center">
     <md-datepicker ng-model="date" md-placeholder="Enter date"></md-datepicker>
@@ -15,6 +15,11 @@
       <md-icon md-svg-icon="img/close-24px.svg"></md-icon>
     </md-button>
   </div>
+  <md-input-container class="md-block">
+    <md-checkbox md-no-ink aria-label="Checkbox Icon Color" ng-model="blueIcon" class="md-primary">
+      {{ blueIcon === false ? "White Icon" : "Blue Icon" }}
+    </md-checkbox>
+  </md-input-container>
   <md-input-container class="md-block md-icon-float">
     <label>Note</label>
     <textarea rows="1" ng-model="query" required aria-label="Note"></textarea>

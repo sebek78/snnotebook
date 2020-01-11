@@ -8,11 +8,13 @@ angular.module("snnotebook").controller("noteFormController", [
     $scope.hideDeleteBtn = $scope.$parent.note.id === null ? true : false;
     $scope.date = new Date();
     $scope.isOpen = false;
+    $scope.blueIcon = $scope.$parent.note.blueIcon;
 
-    $scope.addNote = function addNote(text, date) {
+    $scope.addNote = function addNote(text, date, blueIcon) {
       if (text !== undefined) {
-        $scope.$parent.addNote(text, date);
+        $scope.$parent.addNote(text, date, blueIcon);
         $scope.query = "";
+        $scope.blueIcon = false;
         $window.location.href = "/#!/";
       }
     };
@@ -21,6 +23,8 @@ angular.module("snnotebook").controller("noteFormController", [
     };
     $scope.backBtn = function backBtn() {
       $scope.$parent.note.text = "";
+      $scope.$parent.note.id = null;
+      $scope.$parent.note.blueIcon = false;
       $window.location.href = "/#!/";
     };
   }
