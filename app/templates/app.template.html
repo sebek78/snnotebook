@@ -1,11 +1,14 @@
 <md-content class="list">
   <md-list flex ng-show="notes.length">
     <md-list-item
-      class="md-2-line md-long-text md-whiteframe-4dp"
+      class="md-2-line md-long-text md-whiteframe-4dp bright-bg"
       ng-repeat="note in notes"
       ng-dblclick="editNote($index)"
     >
-      <md-icon md-svg-icon="img/notes-24px.svg"></md-icon>
+      <md-icon
+        class="{{ note.blueIcon ? 'md-primary' : '' }}"
+        md-svg-icon="img/notes-24px.svg"
+      ></md-icon>
       <div class="md-list-item-text" layout="column">
         <span class="md-caption">{{ note.date | date : 'd MMMM y'}}</span>
         <span class="md-body-2">{{ note.text }}</span>
