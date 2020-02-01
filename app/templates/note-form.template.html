@@ -3,23 +3,34 @@
   layout="column"
   layout-align="space-around stretch"
   layout-padding=""
-  ng-submit="addNote(query,date,blueIcon)"
+  ng-submit="addNote(query,noteDate,blueIcon)"
 >
-  <div layout="row" layout-align="space-between center">
-    <md-datepicker ng-model="date" md-placeholder="Enter date"></md-datepicker>
-    <md-button 
-      class="md-fab md-mini md-accent"
-      aria-label="Close form"
-      ng-click="backBtn()"
-    >
-      <md-icon md-svg-icon="img/close-24px.svg"></md-icon>
-    </md-button>
+  <div class="note-form__settings"  >
+    <md-datepicker  class="note-form__date-picker" ng-model="noteDate" md-placeholder="Enter date"></md-datepicker>
+
+    <md-input-container class="md-block note-form__icon-checkbox">
+      <md-checkbox md-no-ink aria-label="Checkbox Icon Color" ng-model="blueIcon" class="md-primary">
+        {{ blueIcon === false ? "White Icon" : "Blue Icon" }}
+      </md-checkbox>
+    </md-input-container>
+
+    <md-radio-group class="note-form__set-date-box" layout="row" layout-wrap layout-align="space-between center" ng-show="differentDate" ng-model="changeDate">
+      <p style="margin:0 0 10px;text-align:center">Set today date?</p>
+      <md-radio-button value="yes" class="md-primary">Yes</md-radio-button>
+      <md-radio-button value="no" checked="true"  class="md-primary">No</md-radio-button>
+    </md-radio-group>
+
+    <div class="note-form__closeBtn">
+      <md-button
+        class="md-fab md-mini md-accent"
+        aria-label="Close form"
+        ng-click="backBtn()"
+      >
+        <md-icon md-svg-icon="img/close-24px.svg"></md-icon>
+      </md-button>
+    </div>
   </div>
-  <md-input-container class="md-block">
-    <md-checkbox md-no-ink aria-label="Checkbox Icon Color" ng-model="blueIcon" class="md-primary">
-      {{ blueIcon === false ? "White Icon" : "Blue Icon" }}
-    </md-checkbox>
-  </md-input-container>
+  
   <md-input-container class="md-block md-icon-float">
     <label>Note</label>
     <textarea rows="1" ng-model="query" required aria-label="Note"></textarea>

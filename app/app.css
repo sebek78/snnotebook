@@ -2,14 +2,67 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
+.bright-bg {
+  background-color: #3c3c3c;
+}
+
 .note-form,
 .list,
 .aboutPage {
   margin-top: 20px;
   width: 100vw;
 }
+
+.note-form__settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-grow: 0;
+  height: 100px;
+  position: relative;
+}
+.note-form__date-picker {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+}
+.note-form__icon-checkbox {
+  margin: 0;
+}
+.note-form__set-date-box {
+  display: inline-block;
+  width: 130px;
+  margin-left: 20px;
+}
+.note-form__closeBtn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
 .note-form__buttons {
   margin-top: 30px;
+}
+
+@media (min-width: 480px) {
+  .note-form__icon-checkbox {
+    position: absolute;
+    top: 12px;
+    left: 230px;
+  }
+  .note-form__set-date-box {
+    margin-left: 0;
+  }
+}
+@media (min-width: 580px) {
+  .note-form__set-date-box {
+    position: absolute;
+    top: 6px;
+    left: 360px;
+  }
+  .note-form__settings {
+    height: 50px;
+  }
 }
 
 @media (min-width: 768px) {

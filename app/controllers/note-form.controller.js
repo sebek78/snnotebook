@@ -4,14 +4,21 @@ angular.module("snnotebook").controller("noteFormController", [
   "$scope",
   "$window",
   function noteFormController($scope, $window) {
-    $scope.query = $scope.$parent.note.text || "";
-    $scope.hideDeleteBtn = $scope.$parent.note.id === null ? true : false;
-    $scope.date = new Date();
+    const { text, id, blueIcon, date } = $scope.$parent.note;
+
+    $scope.today = new Date().toISOString().slice(0, 10);
+    $scope.noteDate = date !== null ? date.slice(0, 10) : $scope.today;
+    $scope.query = text || "";
+    $scope.hideDeleteBtn = id === null ? true : false;
     $scope.isOpen = false;
-    $scope.blueIcon = $scope.$parent.note.blueIcon;
+    $scope.blueIcon = blueIcon;
+    $scope.changeDate = "no";
+    $scope.differentDate = $scope.today !== $scope.noteDate ? true : false;
 
     $scope.addNote = function addNote(text, date, blueIcon) {
-      if (text !== undefined) {
+      if (typeof date === "object") date = date.toISOString().slice(0, 10);
+      if (text) {
+        if ($scope.changeDate === "yes") date = $scope.today;
         $scope.$parent.addNote(text, date, blueIcon);
         $scope.query = "";
         $scope.blueIcon = false;
@@ -19,7 +26,7 @@ angular.module("snnotebook").controller("noteFormController", [
       }
     };
     $scope.deleteBtn = function deleteBtn($event) {
-      $scope.$parent.showConfirm($event, $scope.$parent.note.id);
+      $scope.$parent.showConfirm($event, id);
     };
     $scope.backBtn = function backBtn() {
       $scope.$parent.note.text = "";

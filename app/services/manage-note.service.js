@@ -6,7 +6,7 @@ angular.module("snnotebook").service("manageNote", function() {
       $scope.notes[$scope.note.id].text = newText;
       $scope.notes[$scope.note.id].date = newDate;
       $scope.notes[$scope.note.id].blueIcon = blueIcon;
-      $scope.note = { id: null, text: "", blueIcon: false };
+      $scope.note = { id: null, text: "", date: null, blueIcon: false };
     } else {
       $scope.notes.push({ text: newText, date: newDate, blueIcon });
     }
