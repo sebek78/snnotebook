@@ -7,13 +7,23 @@ angular.module("snnotebook").controller("noteFormController", [
     const { text, id, blueIcon, date } = $scope.$parent.note;
 
     $scope.today = new Date().toISOString().slice(0, 10);
-    $scope.noteDate = date !== null ? date.slice(0, 10) : $scope.today;
+    $scope.firstDate = date !== null ? date.slice(0, 10) : $scope.today;
     $scope.query = text || "";
     $scope.hideDeleteBtn = id === null ? true : false;
     $scope.isOpen = false;
     $scope.blueIcon = blueIcon;
     $scope.changeDate = "no";
     $scope.differentDate = $scope.today !== $scope.noteDate ? true : false;
+    $scope.noteDate =
+      $scope.changeDate === "no" ? $scope.firstDate : $scope.today;
+
+    $scope.newValue = function(changeDate) {
+      if (changeDate === "yes") {
+        $scope.noteDate = $scope.today;
+      } else {
+        $scope.noteDate = $scope.firstDate;
+      }
+    };
 
     $scope.addNote = function addNote(text, date, blueIcon) {
       if (typeof date === "object") date = date.toISOString().slice(0, 10);
